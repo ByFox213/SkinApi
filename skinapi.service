@@ -1,0 +1,14 @@
+Unit]
+Description=SkinApiKotlin
+After=syslog.target network.target
+
+[Service]
+SuccessExitStatus=143
+User=root
+Type=simple
+WorkingDirectory=/skins/skinapi
+ExecStart=/usr/bin/java -jar /skins/skinapi/SkinApi.jar
+ExecStop=/bin/kill -15 $MAINPID
+
+[Install]
+WantedBy=multi-user.target
